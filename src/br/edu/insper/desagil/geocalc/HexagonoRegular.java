@@ -1,10 +1,11 @@
 package br.edu.insper.desagil.geocalc;
-
+import br.edu.insper.desagil.geocalc.TrianguloEquilatero;
 public class HexagonoRegular extends Poligono {
 	private int lado;
-
-	public HexagonoRegular(int lado) {
+	private double areatriangulo;
+	public HexagonoRegular(int lado, double areatriangulo) {
 		this.lado = lado;
+		this.areatriangulo = TrianguloEquilatero area();
 	}
 
 	@Override
@@ -14,10 +15,6 @@ public class HexagonoRegular extends Poligono {
 
 	@Override
 	public double area() {
-		double meio = this.lado / 2.0;
-
-		double altura = Math.sqrt(this.lado * this.lado - meio * meio);
-
-		return 6 * this.lado * altura / 2;
+		return 6 * areatriangulo;
 	}
 }
